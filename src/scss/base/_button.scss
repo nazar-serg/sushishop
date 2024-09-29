@@ -1,0 +1,20 @@
+.button {
+	font-size: 16px;
+	font-weight: 500;
+    line-height: 1.111em;
+	text-transform: uppercase;
+	padding: 15px 30px;
+	background-color: var(--accent-color);
+	border: 2px solid transparent;
+	transform-style: preserve-3d;
+	transition: background-color .3s, transform .3s, color .3s;
+	text-decoration: none;
+	display: inline-block;
+	outline: none;
+	&:hover {
+		background-color: var(--light-blue);
+		color: var(--text-color);
+		transform: translate3d(0, -3px, .01px);
+		border: 2px solid rgba(0, 0, 0, 0.2);
+	}
+}

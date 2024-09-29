@@ -1,58 +1,101 @@
 <?php get_header(); ?>
 <main class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="hero">
+					<h1 class="hero__title">
+						<?php the_field('hero_title'); ?>
+					</h1>
+					<div class="hero__text">
+						<p><?php the_field('hero_text'); ?></p>
+					</div>
+					<div class="hero__btn">
+						<?php 
+						$hero_link = get_field('hero_link');
+						if( $hero_link ): 
+							$link_url = $hero_link['url'];
+							$link_title = $hero_link['title'];
+							$link_target = $hero_link['target'] ? $hero_link['target'] : '_self';
+							?>
+						<a class="button" href="<?php echo esc_url( $link_url ); ?>"
+							target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="popular-menu">
+		<div class="popular-menu__body">
+			<?php
+			if (have_rows('popular_menu_list')): ?>
+			<ul class="popular-menu__list">
+				<?php while(have_rows('popular_menu_list')): the_row();
+				$image = get_sub_field('image');
+				$text = get_sub_field('text');
+				$link = get_sub_field('link');
+				?>
+				<li data-aos="fade-up" data-aos-duration="3000" class="popular-menu__item">
+					<img src="<?php echo $image; ?>" alt="Popular menu">
+					<div class="popular-menu__content">
+						<div class="popular-menu__text">
+							<p><?php echo $text; ?></p>
+						</div>
+						<div class="popular-menu__btn">
+							<a class="button" href="<?php echo $link['url']; ?>">
+								<i class="<?php echo $icon; ?>"></i>
+								<span><?php echo $link['title']; ?></span>
+							</a>
+						</div>
+					</div>
+				</li>
+				<?php endwhile; ?>
+			</ul>
+			<?php endif; ?>
+		</div>
+	</div>
 
 	<section class="advantages">
 		<div class="container">
 			<div class="row mb-5">
 				<div class="col-12">
 					<h2 class="section-title">
-						<span>Наши преимущества</span>
+						<span><?php the_field('our_advantages_title'); ?></span>
 					</h2>
 				</div>
 			</div>
-
-			<div class="row gy-3 items">
+			<?php
+			if (have_rows('our_advantages_list')): ?>
+			<div class="row advantages__list">
+				<?php while(have_rows('our_advantages_list')): the_row();
+				$icon = get_sub_field('icon');
+				$text = get_sub_field('text');
+				$title = get_sub_field('title');
+				?>
 				<div class="col-lg-3 col-sm-6">
-					<div class="item">
-						<p>
-							<i class="fas fa-shipping-fast"></i>
-						</p>
-						<p>Прямые поставки от производителей брендов</p>
+					<div class=" advantages__item d-flex align-items-center gap-3 h-100">
+						<div class="advantages__icon">
+							<i class="<?php echo $icon; ?>"></i>
+						</div>
+						<div class="advantages__content">
+							<div class="advantages__item-title">
+								<h3><?php echo $title; ?></h3>
+							</div>
+							<div class="advantages__item-text">
+								<p><?php echo $text; ?></p>
+							</div>
+						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-3 col-sm-6">
-					<div class="item">
-						<p>
-							<i class="fas fa-cubes"></i>
-						</p>
-						<p>Широкий ассортимент товаров. Более 10 тыс. наименований</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-					<div class="item">
-						<p>
-							<i class="fas fa-hand-holding-usd"></i>
-						</p>
-						<p>Приятные и конкурентные цены</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-					<div class="item">
-						<p>
-							<i class="fa-solid fa-user-graduate"></i>
-						</p>
-						<p>Консультации от профессионалов</p>
-					</div>
-				</div>
+				<?php endwhile; ?>
 			</div>
-
-		</div>
+			<?php endif; ?>
 	</section>
 
-	<section class="featured-products">
+	<section class=" featured-products">
 		<div class="container">
 			<div class="row mb-5">
 				<div class="col-12">
@@ -62,9 +105,8 @@
 				</div>
 			</div>
 
-			<div class="row">
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+			<?php echo do_shortcode('[featured_products limit="8"]'); ?>
+			<!-- <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
 					<div class="product-card">
 						<div class="product-card-offer">
 							<div class="offer-hit">Hit</div>
@@ -78,7 +120,8 @@
 								<a href="product.html">Product 1 Lorem ipsum dolor, sit amet consectetur
 									adipisicing.</a>
 							</h4>
-							<p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+							<p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing
+								elit.
 								Placeat, aperiam!</p>
 							<div class="product-bottom-details d-flex justify-content-between">
 								<div class="product-price">
@@ -92,204 +135,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<div class="offer-hit">Hit</div>
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/2.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 2</a>
-							</h4>
-							<p class="product-excerpt">Lorem ipsum dolor</p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									$65
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<!-- <div class="offer-hit">Hit</div>
-							<div class="offer-new">New</div> -->
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/3.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 3 Lorem ipsum</a>
-							</h4>
-							<p class="product-excerpt">Lorem ipsum</p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									$100
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<div class="offer-hit">Hit</div>
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/4.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 4</a>
-							</h4>
-							<p class="product-excerpt">Lorem ipsum dolor</p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									<small>$70</small>
-									$65
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<div class="offer-hit">Hit</div>
-							<div class="offer-new">New</div>
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/5.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 5 Lorem ipsum dolor, sit amet consectetur
-									adipisicing.</a>
-							</h4>
-							<p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-								Placeat, aperiam!</p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									<small>$70</small>
-									$65
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<div class="offer-hit">Hit</div>
-							<div class="offer-new">New</div>
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/6.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 6</a>
-							</h4>
-							<p class="product-excerpt"></p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									<small>$70</small>
-									$65
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<div class="offer-hit">Hit</div>
-							<div class="offer-new">New</div>
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/7.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 7</a>
-							</h4>
-							<p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-								Placeat, aperiam!</p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									<small>$70</small>
-									$65
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-					<div class="product-card">
-						<div class="product-card-offer">
-							<div class="offer-hit">Hit</div>
-							<div class="offer-new">New</div>
-						</div>
-						<div class="product-thumb">
-							<a href="product.html"><img src="assets/img/products/8.jpg" alt=""></a>
-						</div>
-						<div class="product-details">
-							<h4>
-								<a href="product.html">Product 8 Lorem</a>
-							</h4>
-							<p class="product-excerpt">Lorem ipsum dolor</p>
-							<div class="product-bottom-details d-flex justify-content-between">
-								<div class="product-price">
-									<small>$70</small>
-									$65
-								</div>
-								<div class="product-links">
-									<a href="#" class="btn btn-outline-secondary add-to-cart"><i
-											class="fas fa-shopping-cart"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
+				</div> -->
 		</div>
 	</section>
 

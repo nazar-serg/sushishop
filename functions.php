@@ -1,9 +1,16 @@
 <?php
 //Woocommerce
 add_action( 'after_setup_theme', function() {
-    add_theme_support('woocommerce');
+    load_theme_textdomain( 'sushishop', get_template_directory() . '/languages' );
+    add_theme_support( 'woocommerce' );
     add_theme_support( 'title-tag' );
-    add_theme_support('custom-logo');
+    add_theme_support( 'custom-logo' );
+
+    register_nav_menus(
+        array(
+            'header-menu' => __( 'Header menu', 'sushishop' ),
+        )
+        );
 });
 
 //Styles
@@ -16,4 +23,13 @@ function sushishop_theme_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'sushishop_theme_enqueue_styles');
 
+// Search only products
+function filter_search_only_products($query) {
+    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+        $query->set('post_type', 'product'); // Ограничиваем поиск только товарами
+    }
+}
+add_action('pre_get_posts', 'filter_search_only_products');
+
 require_once get_template_directory() . '/incs/woocommerce-hooks.php';
+require_once get_template_directory() . '/incs/class-sushishop-header-menu.php';
