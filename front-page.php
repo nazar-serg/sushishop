@@ -100,7 +100,7 @@
 			<div class="row mb-5">
 				<div class="col-12">
 					<h2 class="section-title">
-						<span>Рекомендуемые товары</span>
+						<span><?php the_field('hot_sale_title'); ?></span>
 					</h2>
 				</div>
 			</div>

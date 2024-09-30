@@ -24,8 +24,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div <?php wc_product_class( 'product-card', $product ); ?>>
-	<?php
+<div <?php wc_product_class( 'product-card-item', $product ); ?>>
+	<div class="product-card">
+		<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
 	 *
@@ -33,9 +34,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop_item' );
 	?>
-	<div class="product-thumb">
-		<a href="<?php echo $product->get_permalink(); ?>">
-			<?php
+		<div class="product-thumb">
+			<a href="<?php echo $product->get_permalink(); ?>">
+				<?php
 
 	/**
 	 * Hook: woocommerce_before_shop_loop_item_title.
@@ -45,11 +46,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop_item_title' );
 	?>
-		</a>
-	</div>
-	<!--./product-thumb-->
-	<div class="product-details">
-		<?php
+			</a>
+		</div>
+		<!--./product-thumb-->
+		<div class="product-details">
+			<?php
 
 	/**
 	 * Hook: woocommerce_shop_loop_item_title.
@@ -58,10 +59,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_shop_loop_item_title' );
 	?>
-		<div class="product-excerpt"><?php the_content(''); ?></div>
+			<div class="product-excerpt"><?php the_content(''); ?></div>
 
-		<!-- attribute output -->
-		<?php
+			<!-- attribute output -->
+			<?php
 
 			global $product;
 
@@ -79,9 +80,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 			?>
 
-		<div class="product-bottom-details">
+			<div class="product-bottom-details">
 
-			<?php
+				<?php
 
 				echo '<div class="sushishop-product-rating">';
 				woocommerce_template_loop_rating();
@@ -107,9 +108,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
+			</div>
+			<!--./product-bottom-details-->
 		</div>
-		<!--./product-bottom-details-->
+		<!--./product-details-->
 	</div>
-	<!--./product-details-->
+	<!--./product-card-->
 </div>
 <!--./col-lg-3 col-md-4 col-sm-6 mb-3-->

@@ -19,18 +19,13 @@ module.exports = {
           'sass-loader',
         ],
       },
+      // Правило для шрифтов
       {
-        test: /\.(eot|woff|woff2|ttf|otf|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/',
-              publicPath: 'fonts/',
-            },
-          },
-        ],
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]',
+        },
       },
     ],
   },
@@ -44,5 +39,8 @@ module.exports = {
     minimizer: [
       new CssMinimizerPlugin(),
     ],
+  },
+  stats: {
+    errorDetails: true, 
   },
 };

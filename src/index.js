@@ -1,11 +1,11 @@
-import './scss/main.scss';
 import 'bootstrap';
 import AOS from 'aos';
 import 'owl.carousel';
 import './js/scripttotop';
+import './scss/main.scss';
 
 
-console.log('I am');
+console.log('I amasasas');
 
 //AOS animation
 AOS.init({
