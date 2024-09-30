@@ -1,8 +1,8 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../../node_modules/aos/dist/aos.css";
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import "../../node_modules/owl.carousel/dist/assets/owl.carousel.css";
+@import "../../node_modules/owl.carousel/dist/assets/owl.theme.default.css";
 //Base
 @import "./base/reset";
 @import "./base/vars";
@@ -363,6 +363,7 @@ label.required::before {
     }
 }
 
+
 /* ============================= Home ============================ */
 
 
@@ -420,22 +421,22 @@ label.required::before {
 }
 
 .product-card-offer>div {
-    border-radius: 50%;
-    width: 40px;
     height: 40px;
     line-height: 40px;
     text-align: center;
     font-weight: bold;
     font-size: 14px;
+    padding: 0px 10px;
     margin-bottom: 5px;
+    border-radius: 2px;
 }
 
 .offer-hit {
-    background-color: var(--red-color);
+    background-color: var( --accent-color);
 }
 
 .offer-new {
-    background-color: var(--accent-color);
+    background-color: var(--red-color);
 }
 
 .product-thumb {
@@ -446,10 +447,11 @@ label.required::before {
 .product-thumb img {
     width: 100%;
     max-height: 250px;
+    object-fit: cover;
 }
 
 .product-details {
-    padding: 10px 20px;
+    padding: 10px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -506,8 +508,8 @@ label.required::before {
 }
 
 .owl-carousel-full .owl-item img {
-    display: inline-block;
-    width: auto;
+    width: 100%;
+    object-fit: cover;
 }
 
 .product-rating i {
@@ -773,7 +775,7 @@ footer a:hover {
     color: var(--contrast-color);
 }
 
-.cart-summary h3 {
+.cart-summary h3 {   
     color: #000;
 }
 
@@ -856,12 +858,15 @@ footer a:hover {
 }
 
 @font-face {
-    font-family:star;
-    src:url(../fonts/star.eot);
-    src:url(../fonts/star.eot?#iefix) format("embedded-opentype"),url(../fonts/star.woff) format("woff"),url(../fonts/star.ttf) format("truetype"),url(../fonts/star.svg#star) format("svg");
-    font-weight:400;
-    font-style:normal;
+    font-family: 'star';
+    src: url('../fonts/star.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/star.woff') format('woff'),
+         url('../fonts/star.ttf') format('truetype'),
+         url('../fonts/star.svg#star') format('svg');
+    font-weight: 400;
+    font-style: normal;
 }
+
 .products .product .star-rating {
     font-size: .857em;
 }

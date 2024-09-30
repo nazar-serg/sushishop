@@ -19,6 +19,19 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(eot|woff|woff2|ttf|otf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+              publicPath: 'fonts/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

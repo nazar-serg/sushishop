@@ -43,7 +43,9 @@
 <button id="top">
 	<i class="fa-solid fa-angles-up"></i>
 </button>
+
 <?php wp_footer(); ?>
+
 </body>
 
 </html>
