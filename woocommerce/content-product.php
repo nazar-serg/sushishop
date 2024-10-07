@@ -23,9 +23,14 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
+$product_classes = ( is_front_page() || is_search() ) ? 'col-lg-3 col-md-4 col-sm-6 mb-3' : 'col-lg-4 col-sm-6 mb-3';
 ?>
-<div <?php wc_product_class( 'col-lg-3 col-md-4 col-sm-6 mb-3', $product ); ?>>
+<div <?php wc_product_class( $product_classes, $product ); ?>>
 	<div class="product-card">
+		<div class="custom-ajax-loader">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/ripple.svg" alt="">
+		</div>
 		<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
@@ -34,7 +39,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop_item' );
 	?>
-		<div class="product-thumb">
+		<div class=" product-thumb">
 			<a href="<?php echo $product->get_permalink(); ?>">
 				<?php
 

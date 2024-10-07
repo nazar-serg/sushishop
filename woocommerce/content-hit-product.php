@@ -26,6 +26,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 <div <?php wc_product_class( 'product-card-item', $product ); ?>>
 	<div class="product-card">
+		<div class="custom-ajax-loader">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/ripple.svg" alt="">
+		</div>
 		<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

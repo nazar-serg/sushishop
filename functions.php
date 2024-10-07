@@ -9,6 +9,8 @@ add_action( 'after_setup_theme', function() {
     register_nav_menus(
         array(
             'header-menu' => __( 'Header menu', 'sushishop' ),
+            'footer-menu' => __( 'Footer menu', 'sushishop' ),
+            'footer-menu-info' => __( 'Footer menu info', 'sushishop' ),
         )
         );
 });
@@ -25,12 +27,27 @@ function sushishop_theme_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'sushishop_theme_enqueue_styles');
 
 // Search only products
-function filter_search_only_products($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_search()) {
-        $query->set('post_type', 'product'); // Ограничиваем поиск только товарами
-    }
-}
-add_action('pre_get_posts', 'filter_search_only_products');
+// function filter_search_only_products($query) {
+//     if (!is_admin() && $query->is_main_query() && $query->is_search()) {
+//         $query->set('post_type', 'product');
+//     }
+// }
+// add_action('pre_get_posts', 'filter_search_only_products');
+
+//add sidebar
+add_action( 'widgets_init', function() {
+
+    register_sidebar( array(
+        'name'          => __('Custom Sidebar', 'sushishop'),
+        'id'            => 'sidebar-1',
+        'description'   => __('This is a custom sidebar.', 'sushishop'),
+        'before_widget' => '<div class="widget custom-widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ));
+    
+} );
 
 //Incs files
 require_once get_template_directory() . '/incs/woocommerce-hooks.php';

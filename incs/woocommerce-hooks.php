@@ -41,8 +41,8 @@ function custom_add_to_cart_button_wrapper( $button, $product ) {
 
 
 // custom shortcode
-add_shortcode( 'sushishop_recent_products', 'sushishop_recent_products' );
-function sushishop_recent_products( $atts ){
+add_shortcode( 'sushishop_hit_products', 'sushishop_hit_products' );
+function sushishop_hit_products( $atts ){
 	global $woocommerce_loop, $woocommerce;
 
 	extract( shortcode_atts( array(
@@ -83,5 +83,95 @@ function sushishop_recent_products( $atts ){
 
 	wp_reset_postdata();
 
-	return '<div class="woocommerce"><div class="owl-carousel owl-theme owl-carousel-full">' . ob_get_clean() . '</div></div>';
+	return '
+	<div class="woocommerce featured-products-list">
+		<div class="owl-carousel owl-theme owl-carousel-full">
+			' . ob_get_clean() . '
+		</div>
+		<div class="custom-nav-hit-product">
+			<div class="owl-nav prev"></div>
+            <div class="owl-nav next"></div>
+		</div>
+	</div>';
 }
+
+add_filter('woocommerce_add_to_cart_fragments', function( $fragments ) {
+	$fragments['span.cart-badge'] = '<span class="badge text-bg-warning cart-badge bg-warning rounded-circle">'
+								. WC()->cart->get_cart_contents_count() . 
+'</span>';
+
+return $fragments;
+
+});
+
+// Изменяем символ валюты на грн
+add_filter( 'woocommerce_currency_symbol', 'change_currency_symbol_to_uah', 10, 2 );
+
+function change_currency_symbol_to_uah( $currency_symbol, $currency ) {
+    if ( $currency === 'UAH' ) {
+        $currency_symbol = 'грн.';
+    }
+    return $currency_symbol;
+}
+
+//Breadcrumbs
+add_filter('woocommerce_breadcrumb_defaults', function() {
+	return array(
+		'delimiter'   => '',
+		'wrap_before' => '<div class="col-12"><nav class="breadcrumbs"><ul>',
+		'wrap_after'  => '</ul></nav></div>',
+		'before'      => '<li>',
+		'after'       => '</li>',
+		'home'        => __( 'Home', 'sushishop' ),
+	);
+});
+
+//Image category
+function sushishop_get_shop_thumb() {
+	$html = '';
+	if ( is_product_category() ){
+	    global $wp_query;
+	    $cat = $wp_query->get_queried_object();
+	    $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+	    $image = wp_get_attachment_url( $thumbnail_id );
+	    if ( $image ) {
+		    $html .= '<img src="' . $image . '" alt="' . $cat->name . '" class="img-thumbnail"/>';
+		}
+	}
+
+	return $html;
+}
+
+//add title after content - page category
+remove_action('woocommerce_shop_loop_header', 'woocommerce_product_taxonomy_archive_header', 10);
+add_action('woocommerce_shop_loop_header', function() {
+    if (is_product_category() || is_shop()) {
+
+        $category_title = woocommerce_page_title(false);
+
+        echo '<h1 class="woocommerce-products-header__title page-title section-title h3"><span>' . esc_html($category_title) . '</span></h1>';
+    }
+}, 10);
+
+
+//add description after content - page category
+remove_action('woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10);
+add_action('woocommerce_after_shop_loop', function() {
+
+    if (is_product_category() || is_shop()) { ?>
+
+<div class="desc-category">
+	<?php echo woocommerce_taxonomy_archive_description(); ?>
+</div>
+
+<?php
+    }
+	
+}, 10);
+
+//remove all_notices
+remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10);
+
+//single product
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
