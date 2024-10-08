@@ -62,7 +62,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_shop_loop_item_title' );
 	?>
-			<div class="product-excerpt"><?php the_content(''); ?></div>
+			<div class="product-excerpt"><?php the_excerpt(''); ?></div>
 
 			<!-- attribute output -->
 			<?php
@@ -74,7 +74,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			if ( ! empty( $attribute ) ) {
 				echo '<div class="sushishop-product-attribute-wrapper">';
 				
-				echo '<div class="sushishop-product-attribute-icon"><img src="'.get_template_directory_uri() . '/assets/images/icon/sushi-roll.png'.'" alt="Sushi icon"></div>'; // Замените иконку на свою
+				echo '<div class="sushishop-product-attribute-icon"><img src="'.get_template_directory_uri() . '/assets/images/icon/sushi-roll.png'.'" alt="Sushi icon"></div>';
 
 				echo '<div class="sushishop-product-attribute-value">' . esc_html( $attribute ) . '</div>';
 				

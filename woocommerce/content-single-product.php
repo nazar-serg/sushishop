@@ -17,36 +17,55 @@ global $product;
 			$main_image_url = wp_get_attachment_url($product->get_image_id());
 			?>
 			<div class="product-image-wrapper">
-				<img src="<?php echo $main_image_url; ?>" class="product-image"
-					alt="<?php echo $product->get_title(); ?>">
+				<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
 			</div>
 		</div>
 
 		<div class="col-md-7 col-lg-6 mb-3">
 			<?php
         woocommerce_template_single_title();
+		woocommerce_template_single_rating();
+		global $product;
+
+		$attribute_quantity = $product->get_attribute( 'quantity' );
+
+		if ( ! empty( $attribute_quantity ) ) {
+			echo '<div class="sushishop-product-attribute-wrapper sushishop-single-product-attribute-wrapper">';
+			echo '<div class="sushishop-product-attribute-text">' . esc_html('Кількість:', 'sushishop') . '</div>';
+			
+			echo '<div class="sushishop-product-attribute-icon"><img src="'.get_template_directory_uri() . '/assets/images/icon/sushi-roll.png'.'" alt="Sushi icon"></div>';
+
+			echo '<div class="sushishop-product-attribute-value">' . esc_html( $attribute_quantity ) . '</div>';
+			
+			echo '</div>';
+		}
+		
+		if ( have_rows('ingredients') ): ?>
+			<div class="attr-ingredients-products">
+				<div class="attr-ingredients-products__title"><?php _e('Інгредієнти:', 'sushishop'); ?></div>
+				<ul>
+					<?php
+			while( have_rows('ingredients')): the_row();
+			$sub_text = get_sub_field('text');
+			$sub_image = get_sub_field('image');
+		?>
+					<li>
+						<img src="<?php echo $sub_image; ?>" alt="<?php echo $sub_text; ?>">
+						<p><?php echo $sub_text; ?></p>
+					</li>
+
+					<?php endwhile; ?>
+				</ul>
+			</div>
+			<?php
+			endif;
+			?>
+
+			<?php
         woocommerce_template_single_price();
 		woocommerce_template_single_add_to_cart();
         ?>
 		</div>
-	</div>
-
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		//do_action( 'woocommerce_single_product_summary' );
-		?>
 	</div>
 
 	<?php

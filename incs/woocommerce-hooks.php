@@ -175,3 +175,39 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 
 //single product
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+add_filter( 'woocommerce_sale_flash', function( $html, $post, $product ) {
+	if ( is_product() ) {
+        $html = '<span class="onsale">Знижка</span>';
+    }
+
+    return $html;
+}, 10, 3 );
+
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+
+// Убираем вкладки и выводим описание и отзывы
+add_filter('woocommerce_product_tabs', 'custom_remove_product_tabs_layout', 98);
+
+function custom_remove_product_tabs_layout($tabs) {
+    return array();
+}
+
+// Вывод описания и отзывов в виде блоков
+add_action('woocommerce_after_single_product_summary', 'custom_display_product_description_and_reviews', 5);
+
+function custom_display_product_description_and_reviews() {
+    global $post;
+	global $product;
+
+	echo '<div class="custom-product-description">';
+    echo '<h2>' . __('Опис', 'sushishop') . ' ' . __($product->name) . '</h2>';
+    the_content();
+    echo '</div>';
+
+	echo '<div class="custom-product-comments">';
+	echo '<h2>' . __('Відгуки', 'woocommerce') . '</h2>';
+    comments_template();
+	echo '</div>';
+}

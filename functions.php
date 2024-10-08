@@ -5,7 +5,8 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'custom-logo' );
-
+    add_theme_support( 'wc-product-gallery-lightbox' );
+     
     register_nav_menus(
         array(
             'header-menu' => __( 'Header menu', 'sushishop' ),
