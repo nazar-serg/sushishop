@@ -75,6 +75,15 @@ img {
     color: var(--contrast-color);
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* ============================= General rules ============================ */
 .wrapper {
     min-height: 100%;
@@ -188,7 +197,7 @@ label.required::before {
 
 .info-product {
     i {
-        color: #000;
+        color: #fff;
     }
 }
 
@@ -236,13 +245,12 @@ label.required::before {
 }
 
 .header-bottom {
-    border-top: 3px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
 }
 
 .header-bottom .navbar,
 .header-bottom .navbar .dropdown-menu {
-    background-color: var(--bg-color) !important;
+    background-color: #212529 !important;
 }
 
 .header-bottom .nav-item:first-child .nav-link {
@@ -250,7 +258,7 @@ label.required::before {
 }
 
 .header-bottom .navbar .nav-link {
-    color: #000;
+    color: #fff;
     transition: .3s all;
     letter-spacing: .1rem;
     text-transform: uppercase;
@@ -460,7 +468,8 @@ label.required::before {
 .product-thumb img {
     width: 100%;
     max-height: 250px;
-    object-fit: cover;
+    object-fit: contain;
+    margin-top: 15px;
 }
 
 .product-details {
@@ -518,11 +527,6 @@ label.required::before {
 
 .sushishop-product-button {
     text-align: center;
-}
-
-.owl-carousel-full .owl-item img {
-    width: 100%;
-    object-fit: cover;
 }
 
 .product-rating i {
@@ -610,9 +614,10 @@ label.required::before {
 
 /* ============================= Footer ============================ */
 footer {
-    background-color: #000;
+    background-color: #212529;
     padding: 50px 0;
     color: #fff;
+    margin-top: auto;
 }
 
 footer h4 {
@@ -882,6 +887,17 @@ footer a:hover {
 .cart-summary .btn {
     padding: 1rem;
 }
+.cart-summary {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.cart-content {
+    .input-group {
+        width: 130px;
+        input[type="number"] {
+            text-align: center;
+        }
+    }
+}
 
 #checkoutForm {
     position: relative;
@@ -963,6 +979,14 @@ footer a:hover {
          url('../fonts/star.woff') format('woff'),
          url('../fonts/star.ttf') format('truetype'),
          url('../fonts/star.svg#star') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: WooCommerce;
+    src: url(../fonts/WooCommerce.eot);
+    src: url(../fonts/WooCommerce.eot?#iefix) format("embedded-opentype"), url(../fonts/WooCommerce.woff) format("woff"), url(../fonts/WooCommerce.ttf) format("truetype"), url(../fonts/WooCommerce.svg#WooCommerce) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -1274,25 +1298,15 @@ a.added_to_cart {
         padding: 0;
         padding: 0 8px;
     }
-
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
 }
 
 .woocommerce-notices-wrapper {
-    background-color: var(--light-blue);
-    padding: 10px;
-    margin-bottom: 10px;
     outline: none;
     .woocommerce-message {
         outline: none;
+        background-color: var(--light-blue);
+        padding: 10px;
+        margin-bottom: 10px;
         a {
             padding: 0;
             padding: 5px 10px;
@@ -1322,9 +1336,185 @@ a.added_to_cart {
     padding-top: 20px;
 }
 
+/* Основной контейнер для отзывов */
+.woocommerce-Reviews {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
 
+/* Заголовок отзывов */
+.woocommerce-Reviews-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
 
+/* Список отзывов */
+.commentlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Каждый отзыв */
+.commentlist .review {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* Аватар автора отзыва */
+.commentlist .review img.avatar {
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+/* Текст отзыва */
+.commentlist .comment-text {
+    flex: 1;
+}
+
+/* Имя автора и дата */
+.commentlist .comment-text .meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Рейтинг (звезды) */
+.star-rating {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+/* Текст отзыва */
+.commentlist .description {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Форма добавления отзыва */
+#review_form_wrapper {
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+/* Заголовок формы */
+#review_form #reply-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Поле ввода текста отзыва */
+#review_form .comment-form-comment textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+/* Рейтинг в форме */
+.comment-form-rating {
+    margin-bottom: 20px;
+}
+
+.comment-form-rating label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.comment-form-rating .stars {
+    display: flex;
+    gap: 5px;
+}
+
+.comment-form-rating .stars a {
+    color: #ffcc00;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.comment-form-rating .stars a:hover {
+    transform: scale(1.2);
+}
+
+/* comments */
+.woocommerce p.stars a {
+    position: relative;
+    height: 1em;
+    width: 1em;
+    text-indent: -999em;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.woocommerce p.stars a::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    font-family: WooCommerce;
+    content: "\e021";
+    text-indent: 0;
+}
+
+.woocommerce p.stars a:hover ~ a::before {
+    content: "\e021";
+}
+
+.woocommerce p.stars:hover a::before {
+    content: "\e020";
+    color: var(--accent-color);
+}
+
+.woocommerce p.stars.selected a.active::before {
+    content: "\e020";
+    color: var(--accent-color);
+}
+
+.woocommerce p.stars.selected a.active ~ a::before {
+    content: "\e021";
+}
+
+.woocommerce p.stars.selected a:not(.active)::before {
+    content: "\e020";
+    color: var(--accent-color);
+}
+
+.attr-weight {
+    margin-top: 20px;
+    .sushishop-product-attribute-value {
+        color: var(--text-color);
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+.upsells {
+    .section-title {
+        margin-bottom: 3rem;
+    }
+    .custom-nav-hit-product {
+        top: 90px;
+    }
+    
+}
 /* Single product */
+
+
 
 
 

@@ -146,7 +146,7 @@
 		</header>
 
 		<div class="header-bottom sticky-top" id="header-nav">
-			<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+			<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
 				<div class="container">
 					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
 						data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
@@ -172,6 +172,7 @@
 						</div>
 					</div>
 
+					<?php if (! is_cart()): ?>
 					<div class="info-product">
 						<button class="btn p-1" id="cart-open" type="button" data-bs-toggle="offcanvas"
 							data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
@@ -181,13 +182,14 @@
 							</span>
 						</button>
 					</div>
+					<?php endif; ?>
 
 				</div>
 			</nav>
 		</div>
 
 		<!-- ./header-bottom -->
-
+		<?php if (! is_cart()): ?>
 		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
 			<div class="offcanvas-header">
 				<h5 class="offcanvas-title" id="offcanvasCartLabel"><?php _e('Кошик', 'sushishop'); ?></h5>
@@ -197,3 +199,4 @@
 				<?php woocommerce_mini_cart(); ?>
 			</div>
 		</div>
+		<?php endif; ?>

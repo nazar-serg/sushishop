@@ -64,6 +64,15 @@ global $product;
 			<?php
         woocommerce_template_single_price();
 		woocommerce_template_single_add_to_cart();
+
+		$attribute_weight = $product->get_attribute( 'weight' );
+
+		if ( ! empty( $attribute_weight ) ) {
+			echo '<div class="sushishop-product-attribute-wrapper sushishop-single-product-attribute-wrapper attr-weight">';
+			echo '<div class="sushishop-product-attribute-text">' . esc_html('Вага:', 'sushishop') . '</div>';
+			echo '<div class="sushishop-product-attribute-value">' . esc_html( $attribute_weight ) . '</div>';
+			echo '</div>';
+		}
         ?>
 		</div>
 	</div>

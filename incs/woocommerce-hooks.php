@@ -40,7 +40,7 @@ function custom_add_to_cart_button_wrapper( $button, $product ) {
 }
 
 
-// custom shortcode
+// custom shortcode for hit products
 add_shortcode( 'sushishop_hit_products', 'sushishop_hit_products' );
 function sushishop_hit_products( $atts ){
 	global $woocommerce_loop, $woocommerce;
@@ -184,7 +184,8 @@ add_filter( 'woocommerce_sale_flash', function( $html, $post, $product ) {
     return $html;
 }, 10, 3 );
 
-remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+//remove upsell and related products
+//remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
 // Убираем вкладки и выводим описание и отзывы
@@ -200,14 +201,15 @@ add_action('woocommerce_after_single_product_summary', 'custom_display_product_d
 function custom_display_product_description_and_reviews() {
     global $post;
 	global $product;
-
-	echo '<div class="custom-product-description">';
-    echo '<h2>' . __('Опис', 'sushishop') . ' ' . __($product->name) . '</h2>';
-    the_content();
-    echo '</div>';
+	if(!empty(get_the_content())) {
+		echo '<div class="custom-product-description">';
+		echo '<h2 class="section-title"><span>' . __('Опис', 'sushishop') . ' ' . __($product->name) . '</span></h2>';
+		the_content();
+		echo '</div>';
+	}
 
 	echo '<div class="custom-product-comments">';
-	echo '<h2>' . __('Відгуки', 'woocommerce') . '</h2>';
+	echo '<h2 class="section-title"><span>' . __('Відгуки', 'woocommerce') . '</span></h2>';
     comments_template();
 	echo '</div>';
 }
