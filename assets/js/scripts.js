@@ -10063,9 +10063,6 @@ var scripttotop = __webpack_require__(611);
 
 
 
-
-console.log('I amasasas');
-
 //AOS animation
 aos_default().init({
     once: true, 
@@ -10158,6 +10155,8 @@ function setEqualHeight() {
 $(window).on('load', setEqualHeight);
 $('.owl-carousel').on('initialized.owl.carousel', setEqualHeight);
 $(window).resize(setEqualHeight);
+
+
 
 
 

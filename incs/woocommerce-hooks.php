@@ -213,3 +213,51 @@ function custom_display_product_description_and_reviews() {
     comments_template();
 	echo '</div>';
 }
+
+/**
+ * remove fields in checkout page
+ */
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
+function custom_override_checkout_fields($fields) {
+    // Удаляем ненужные поля
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_email']);
+    unset($fields['billing']['billing_last_name']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_address_2']);
+
+	
+    $fields['billing']['billing_address_1']['required'] = false;
+    $fields['billing']['billing_country']['required'] = false;
+    
+    return $fields;
+}
+
+
+/**
+ *  Відображення зображень продуктів на сторінці оформлення замовлення Woocommerce
+ */   
+add_filter( 'woocommerce_cart_item_name', 'display_product_image_checkout', 10, 2 );
+function display_product_image_checkout( $name, $cart_item ) {
+    if ( ! is_checkout() ) return $name;
+    $thumbnail = '<span class="product-name__thumbnail" style="float: left; padding-right: 15px">' . get_the_post_thumbnail( $cart_item['product_id'], array( 32, 50 ) ) . '</span>';
+    return $thumbnail . '<span class="product-name__text">' . $name . '</span>';
+}
+
+//add our class for button(checkout page)
+add_filter('woocommerce_order_button_html', function($button) {
+	$btn = str_replace('button alt', 'button alt btn w-100', $button);
+	return $btn;
+});
+
+//update text for field address_1
+add_filter( 'woocommerce_default_address_fields' , 'override_default_address_fields' );
+function override_default_address_fields( $address_fields ) {
+	
+    $address_fields['address_1']['label'] = __('Delivery address', 'woocommerce');
+
+    return $address_fields;
+}

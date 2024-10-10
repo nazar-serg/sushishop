@@ -4,9 +4,6 @@ import 'owl.carousel';
 import './js/scripttotop';
 import './scss/main.scss';
 
-
-console.log('I amasasas');
-
 //AOS animation
 AOS.init({
     once: true, 
@@ -99,5 +96,7 @@ function setEqualHeight() {
 $(window).on('load', setEqualHeight);
 $('.owl-carousel').on('initialized.owl.carousel', setEqualHeight);
 $(window).resize(setEqualHeight);
+
+
 
 
