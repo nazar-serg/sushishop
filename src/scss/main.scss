@@ -281,9 +281,9 @@ label.required::before {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
 }
-.navbar-toggler-icon {
-    content: url(../../assets/images/icon/burger-menu.svg);
-}
+// .navbar-toggler-icon {
+//     content: url(../../assets/images/icon/burger-menu.svg);
+// }
 /* ============================= Header ============================ */
 
 /* ============================= Home ============================ */
@@ -1604,13 +1604,71 @@ a.added_to_cart {
     }
 }
 
+.cart-summary {
+    .product-thumbnail {
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .product-name {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .product-total {
+        vertical-align: middle;
+    }
+    
+}
+.checkout {
+    .woocommerce-error {
+        background-color: var(--red-color);
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+}
+.woocommerce-order {
+    .woocommerce-notice--success {
+        background-color: #4F7942;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
 @media only screen and (max-width : 768px) {
     .woocommerce-checkout p {
         flex: 100%;
         max-width: 100%;
     }
 }
+
+.woocommerce-order-details,
+.woocommerce-customer-details {
+    padding: 20px 0;
+}
 /* Checkout */
+
+/* Account */
+.woocommerce-password-strength.bad,
+.woocommerce-password-strength.short {
+    color: #B22222;
+    font-weight: 500;
+    margin: 2px 0;
+}
+.woocommerce-password-strength.good,
+.woocommerce-password-strength.strong {
+    color: #4F7942;
+    font-weight: 500;
+    margin: 2px 0;
+}
+.woocommerce-password-hint {
+    border: 1px solid #B22222;
+    padding: 5px;
+    display: block;
+}
+/* Account */
 
 
 

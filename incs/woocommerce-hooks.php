@@ -236,17 +236,6 @@ function custom_override_checkout_fields($fields) {
     return $fields;
 }
 
-
-/**
- *  Відображення зображень продуктів на сторінці оформлення замовлення Woocommerce
- */   
-add_filter( 'woocommerce_cart_item_name', 'display_product_image_checkout', 10, 2 );
-function display_product_image_checkout( $name, $cart_item ) {
-    if ( ! is_checkout() ) return $name;
-    $thumbnail = '<span class="product-name__thumbnail" style="float: left; padding-right: 15px">' . get_the_post_thumbnail( $cart_item['product_id'], array( 32, 50 ) ) . '</span>';
-    return $thumbnail . '<span class="product-name__text">' . $name . '</span>';
-}
-
 //add our class for button(checkout page)
 add_filter('woocommerce_order_button_html', function($button) {
 	$btn = str_replace('button alt', 'button alt btn w-100', $button);
@@ -260,4 +249,13 @@ function override_default_address_fields( $address_fields ) {
     $address_fields['address_1']['label'] = __('Delivery address', 'woocommerce');
 
     return $address_fields;
+}
+
+// Remove the "Downloads" section from the Personal Account menu
+add_filter( 'woocommerce_account_menu_items', 'remove_downloads_from_my_account', 999 );
+
+function remove_downloads_from_my_account( $items ) {
+	
+    unset( $items['downloads'] );
+    return $items;
 }
