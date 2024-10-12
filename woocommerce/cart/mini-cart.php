@@ -95,14 +95,14 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		<a href="<?php echo wc_get_cart_url(); ?>"
 			class="btn btn-outline-warning"><?php _e('Кошик', 'sushishop'); ?></a>
 		<a href="<?php echo wc_get_checkout_url(); ?>"
-			class="btn btn-outline-secondary"><?php _e('Оформлення замовлення', 'sushishop'); ?></a>
+			class="btn btn-outline-secondary"><?php _e('Оплата', 'sushishop'); ?></a>
 	</div>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
 
 	<?php else : ?>
 
-	<p class=" woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Немає товарів у кошику.', 'woocommerce' ); ?>
+	<p class=" woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?>
 	</p>
 
 	<?php endif; ?>

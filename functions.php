@@ -27,15 +27,6 @@ function sushishop_theme_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'sushishop_theme_enqueue_styles');
 
-// Search only products
-// function filter_search_only_products($query) {
-//     if (!is_admin() && $query->is_main_query() && $query->is_search()) {
-//         $query->set('post_type', 'product');
-//     }
-// }
-// add_action('pre_get_posts', 'filter_search_only_products');
-
-//add sidebar
 add_action( 'widgets_init', function() {
 
     register_sidebar( array(

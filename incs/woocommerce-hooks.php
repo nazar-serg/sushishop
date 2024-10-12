@@ -122,7 +122,7 @@ add_filter('woocommerce_breadcrumb_defaults', function() {
 		'wrap_after'  => '</ul></nav></div>',
 		'before'      => '<li>',
 		'after'       => '</li>',
-		'home'        => __( 'Home', 'sushishop' ),
+		'home'        => __( 'Головна', 'sushishop' ),
 	);
 });
 
@@ -203,13 +203,13 @@ function custom_display_product_description_and_reviews() {
 	global $product;
 	if(!empty(get_the_content())) {
 		echo '<div class="custom-product-description">';
-		echo '<h2 class="section-title"><span>' . __('Опис', 'sushishop') . ' ' . __($product->name) . '</span></h2>';
+		echo '<h2 class="section-title"><span>' . __('Description', 'sushishop') . ' ' . __($product->name) . '</span></h2>';
 		the_content();
 		echo '</div>';
 	}
 
 	echo '<div class="custom-product-comments">';
-	echo '<h2 class="section-title"><span>' . __('Відгуки', 'woocommerce') . '</span></h2>';
+	echo '<h2 class="section-title"><span>' . __('Reviews', 'woocommerce') . '</span></h2>';
     comments_template();
 	echo '</div>';
 }
@@ -246,7 +246,7 @@ add_filter('woocommerce_order_button_html', function($button) {
 add_filter( 'woocommerce_default_address_fields' , 'override_default_address_fields' );
 function override_default_address_fields( $address_fields ) {
 	
-    $address_fields['address_1']['label'] = __('Delivery address', 'woocommerce');
+    $address_fields['address_1']['label'] = __('Адреса доставки ', 'woocommerce');
 
     return $address_fields;
 }
@@ -258,4 +258,29 @@ function remove_downloads_from_my_account( $items ) {
 	
     unset( $items['downloads'] );
     return $items;
+}
+
+
+function custom_breadcrumbs() {
+    // Начало контейнера
+    echo '<ul class="breadcrumbs page-breadcrumbs">';
+    
+    if (!is_home()) {
+        echo '<li><a href="' . home_url() . '">Головна</a></li>';
+        if (is_category() || is_single()) {
+            echo '<li>';
+            the_category(' </li><li> ');
+            if (is_single()) {
+                echo '</li><li>';
+                the_title();
+                echo '</li>';
+            }
+        } elseif (is_page()) {
+            echo '<li>';
+            echo the_title();
+            echo '</li>';
+        }
+    }
+    
+    echo '</ul>';
 }

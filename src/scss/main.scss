@@ -84,6 +84,12 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+/* Breadcrumbs */
+.page-breadcrumbs {
+    display: flex;
+    align-items: center;
+}
+/* Breadcrumbs */
 /* ============================= General rules ============================ */
 .wrapper {
     min-height: 100%;
@@ -1537,7 +1543,8 @@ a.added_to_cart {
     flex-direction: column;
 }
 
-.woocommerce-checkout p .input-text {
+.woocommerce-checkout p .input-text,
+.woocommerce-address-fields p .input-text {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -1561,19 +1568,23 @@ a.added_to_cart {
     box-shadow: none;
 }
 
-.woocommerce-checkout p .select2-container--default .select2-selection--single {
+.woocommerce-checkout p .select2-container--default .select2-selection--single,
+.woocommerce-address-fields p .select2-container--default .select2-selection--single {
     border-radius: 0;
 }
 
-.woocommerce-checkout p .select2-container .select2-selection--single {
+.woocommerce-checkout p .select2-container .select2-selection--single,
+.woocommerce-address-fields p .select2-container .select2-selection--single {
     height: 38px;
 }
 
-.woocommerce-checkout p .select2-container .select2-selection--single .select2-selection__rendered {
+.woocommerce-checkout p .select2-container .select2-selection--single .select2-selection__rendered,
+.woocommerce-address-fields p .select2-container .select2-selection--single .select2-selection__rendered {
     padding-top: 4px;
 }
 
-.woocommerce-checkout p .select2-container--default .select2-selection--single .select2-selection__arrow {
+.woocommerce-checkout p .select2-container--default .select2-selection--single .select2-selection__arrow,
+.woocommerce-address-fields p .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 5px;
 }
 
@@ -1668,7 +1679,37 @@ a.added_to_cart {
     padding: 5px;
     display: block;
 }
+
+.woocommerce-Address {
+    width: 100%;
+}
 /* Account */
+
+/* Contact page */
+.contacts-page {
+    &__wrapper {
+        max-width: 800px;
+        margin: auto;
+    }
+    ul {
+        li {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                color: #000;
+                text-decoration: none;
+                &:hover {
+                    color: var(--hover-color);
+                }
+            }
+        }
+    }
+}
+/* Contact page */
 
 
 

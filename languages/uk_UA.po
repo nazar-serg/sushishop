@@ -1,0 +1,688 @@
+# Copyright (C) 2020 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/_s\n"
+"POT-Creation-Date: 2024-10-12 15:10+0300\n"
+"PO-Revision-Date: 2024-10-12 15:16+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Domain: _s\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: footer.php:41
+msgid "Меню"
+msgstr ""
+
+#: footer.php:54
+msgid "Інформація"
+msgstr ""
+
+#: footer.php:67
+msgid "Телефони для замовлень"
+msgstr ""
+
+#: functions.php:12
+msgid "Header menu"
+msgstr ""
+
+#: functions.php:13
+msgid "Footer menu"
+msgstr ""
+
+#: functions.php:14
+msgid "Footer menu info"
+msgstr ""
+
+#: functions.php:33
+msgid "Custom Sidebar"
+msgstr ""
+
+#: functions.php:35
+msgid "This is a custom sidebar."
+msgstr ""
+
+#: header.php:184
+msgid "Кошик"
+msgstr ""
+
+#: incs/woocommerce-hooks.php:21
+#, php-format
+msgid "Rated %s out of 5"
+msgstr "Оцінка %s із 5"
+
+#: incs/woocommerce-hooks.php:31
+msgid "Замовити"
+msgstr ""
+
+#: incs/woocommerce-hooks.php:125
+msgid "Home"
+msgstr "Головна"
+
+#: incs/woocommerce-hooks.php:206
+msgid "Description"
+msgstr "Опис"
+
+#: incs/woocommerce-hooks.php:212 woocommerce/single-product-reviews.php:37
+msgid "Reviews"
+msgstr "Відгуки"
+
+#: incs/woocommerce-hooks.php:249
+msgid "Delivery address"
+msgstr "Адреса доставки"
+
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:419
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:419
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:422
+#, javascript-format
+msgid "Argument unexpected for: %s"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:428
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:442
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:495
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:428
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:442
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:495
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:431
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:445
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:498
+#, javascript-format
+msgid "Not enough arguments following: %s"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:634
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:634
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:635
+#, javascript-format
+msgid "Invalid JSON config file: %s"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:963
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:963
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:964
+#, javascript-format
+msgid "Invalid configuration: %s, opts.count excludes opts.array."
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs-parser/build/lib/yargs-parser.js:967
+#: node_modules/node-sass/node_modules/yargs-parser/build/lib/yargs-parser.js:967
+#: node_modules/yargs-parser/build/lib/yargs-parser.js:968
+#, javascript-format
+msgid "Invalid configuration: %s, opts.count excludes opts.narg."
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:79
+#: node_modules/yargs/build/lib/usage.js:92
+msgid "Positionals:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:173
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:176
+#: node_modules/yargs/build/lib/usage.js:189
+#: node_modules/yargs/build/lib/usage.js:192
+msgid "command"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:182
+#: node_modules/yargs/build/lib/usage.js:198
+msgid "Commands:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:199
+#: node_modules/yargs/build/lib/usage.js:217
+msgid "default"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:201
+#: node_modules/yargs/build/lib/usage.js:219
+msgid "aliases:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:205
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:311
+#: node_modules/yargs/build/lib/usage.js:223
+#: node_modules/yargs/build/lib/usage.js:329
+#, javascript-format
+msgid "deprecated: %s"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:208
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:312
+#: node_modules/yargs/build/lib/usage.js:226
+#: node_modules/yargs/build/lib/usage.js:330
+msgid "deprecated"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:227
+#: node_modules/yargs/build/lib/usage.js:245
+msgid "Options:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:299
+#: node_modules/yargs/build/lib/usage.js:317
+msgid "boolean"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:301
+#: node_modules/yargs/build/lib/usage.js:319
+msgid "count"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:303
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:305
+#: node_modules/yargs/build/lib/usage.js:321
+#: node_modules/yargs/build/lib/usage.js:323
+msgid "string"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:307
+#: node_modules/yargs/build/lib/usage.js:325
+msgid "array"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:309
+#: node_modules/yargs/build/lib/usage.js:327
+msgid "number"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:318
+#: node_modules/yargs/build/lib/usage.js:336
+msgid "required"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:320
+#: node_modules/yargs/build/lib/usage.js:338
+msgid "choices:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:339
+#: node_modules/yargs/build/lib/usage.js:359
+msgid "Examples:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:441
+#: node_modules/yargs/build/lib/usage.js:464
+msgid "generated-value"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/usage.js:458
+#: node_modules/yargs/build/lib/usage.js:481
+msgid "default:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/validation.js:146
+#: node_modules/yargs/build/lib/validation.js:160
+msgid "Invalid values:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/validation.js:148
+#: node_modules/yargs/build/lib/validation.js:162
+#, javascript-format
+msgid "Argument: %s, Given: %s, Choices: %s"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/validation.js:171
+#: node_modules/yargs/build/lib/yargs-factory.js:183
+#, javascript-format
+msgid "Argument check failed: %s"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/validation.js:233
+#: node_modules/yargs/build/lib/validation.js:221
+msgid "Implications failed:"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/validation.js:267
+#: node_modules/yargs/build/lib/validation.js:255
+#: node_modules/yargs/build/lib/validation.js:266
+#, javascript-format
+msgid "Arguments %s and %s are mutually exclusive"
+msgstr ""
+
+#: node_modules/gulp-cli/node_modules/yargs/build/lib/validation.js:286
+#: node_modules/yargs/build/lib/validation.js:285
+#, javascript-format
+msgid "Did you mean %s?"
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:36
+msgid "Return to shop"
+msgstr "Повернення до магазину"
+
+#: woocommerce/cart/cart-shipping.php:64
+msgid "Shipping costs are calculated during checkout."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:66
+msgid "Enter your address to view shipping options."
+msgstr "Введіть свою адресу, щоб переглянути варіанти доставки."
+
+#: woocommerce/cart/cart-shipping.php:69
+msgid ""
+"There are no shipping options available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:83
+#, php-format
+msgid "No shipping options were found for %s."
+msgstr "Не знайдено варіантів доставки для %s."
+
+#: woocommerce/cart/cart-shipping.php:87
+msgid "Enter a different address"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:10
+msgid "Cart totals"
+msgstr "Сума кошика"
+
+#: woocommerce/cart/cart-totals.php:33
+msgid "Shipping"
+msgstr "Доставка"
+
+#: woocommerce/cart/cart-totals.php:54
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:85
+#: woocommerce/checkout/review-order.php:102
+#: woocommerce/order/order-details.php:42
+msgid "Total"
+msgstr "Всього"
+
+#: woocommerce/cart/cart.php:24
+msgid "Thumbnail image"
+msgstr ""
+
+#: woocommerce/cart/cart.php:25 woocommerce/checkout/review-order.php:23
+#: woocommerce/order/order-details.php:40
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:26
+msgid "Price"
+msgstr "Ціна"
+
+#: woocommerce/cart/cart.php:27 woocommerce/global/quantity-input.php:24
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:28 woocommerce/checkout/review-order.php:24
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart.php:89
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:140 woocommerce/cart/mini-cart.php:59
+#, php-format
+msgid "Remove %s from cart"
+msgstr ""
+
+#: woocommerce/cart/cart.php:168 woocommerce/checkout/form-coupon.php:34
+msgid "Coupon:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:175 woocommerce/checkout/form-coupon.php:39
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:186
+msgid "Update cart"
+msgstr "Оновити кошик"
+
+#: woocommerce/cart/mini-cart.php:95
+msgid "Cart"
+msgstr "Кошик"
+
+#: woocommerce/cart/mini-cart.php:97
+msgid "Checkout"
+msgstr "Оформлення замовлення"
+
+#: woocommerce/cart/mini-cart.php:104
+msgid "No products in the cart."
+msgstr "Немає товарів у кошику."
+
+#: woocommerce/cart/proceed-to-checkout-button.php:27
+msgid "Proceed to checkout"
+msgstr "Перейти до оформлення замовлення"
+
+#: woocommerce/checkout/form-billing.php:25
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:29
+msgid "Billing details"
+msgstr "Платіжні реквізити"
+
+#: woocommerce/checkout/form-billing.php:57
+msgid "Create an account?"
+msgstr "Створити акаунт?"
+
+#: woocommerce/checkout/form-checkout.php:10
+msgid ""
+"You must be logged in to\n"
+"\tcheckout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:36
+msgid "Your order"
+msgstr "Ваше замовлення"
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Have a coupon?"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Click here to enter your code"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:31
+msgid "If you have a coupon code, please apply it below."
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:14
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:45
+msgid "Additional information"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:18
+msgid ""
+"Unfortunately your order cannot be processed as the originating bank/"
+"merchant has declined your transaction. Please attempt your purchase again."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:23
+msgid "Pay"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:26
+msgid "My account"
+msgstr "Мій рахунок"
+
+#: woocommerce/checkout/thankyou.php:37
+msgid "Order number:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:42
+msgid "Date:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:48
+msgid "Email:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:54
+msgid "Total:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:60
+msgid "Payment method:"
+msgstr ""
+
+#: woocommerce/content-single-product.php:45
+msgid "Інгредієнти:"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:24
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+#: woocommerce/loop/sale-flash.php:28
+msgid "Знижка"
+msgstr ""
+
+#: woocommerce/loop/sale-flash.php:34
+msgid "Hit"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:14
+msgid "First name"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:21
+msgid "Last name"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:31
+msgid "Display name"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:36
+msgid ""
+"This will be how your name will be displayed in the account section and in "
+"reviews"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:41
+#: woocommerce/myaccount/form-login.php:92
+msgid "Email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:58
+msgid "Password change"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:62
+msgid "Current password (leave blank to leave unchanged)"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:68
+msgid "New password (leave blank to leave unchanged)"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:74
+msgid "Confirm new password"
+msgstr "Підтвердьте новий пароль"
+
+#: woocommerce/myaccount/form-edit-account.php:95
+msgid "Save changes"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-address.php:5
+#: woocommerce/order/order-details-customer.php:32
+msgid "Billing address"
+msgstr "Платіжна адреса"
+
+#: woocommerce/myaccount/form-edit-address.php:5
+#: woocommerce/order/order-details-customer.php:64
+msgid "Shipping address"
+msgstr "Адреса доставки"
+
+#: woocommerce/myaccount/form-edit-address.php:35
+msgid "Save address"
+msgstr "Зберегти адресу"
+
+#: woocommerce/myaccount/form-login.php:15
+msgid "Login"
+msgstr "Логін"
+
+#: woocommerce/myaccount/form-login.php:23
+msgid "Username or email address"
+msgstr "Ім'я користувача або адреса електронної пошти"
+
+#: woocommerce/myaccount/form-login.php:25
+#: woocommerce/myaccount/form-login.php:34
+#: woocommerce/myaccount/form-login.php:81
+#: woocommerce/myaccount/form-login.php:94
+#: woocommerce/myaccount/form-login.php:107
+msgid "Required"
+msgstr "Обов'язковий"
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:105
+msgid "Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:46
+msgid "Remember me"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:53
+msgid "Log in"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:56
+msgid "Lost your password?"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:69
+#: woocommerce/myaccount/form-login.php:126
+msgid "Register"
+msgstr "Зареєструватися"
+
+#: woocommerce/myaccount/form-login.php:79
+msgid "Username"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:114
+msgid "A link to set a new password will be sent to your email address."
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:47 woocommerce/myaccount/orders.php:71
+#, php-format
+msgid "View order number %s"
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:97
+msgid "Previous"
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:102
+msgid "Next"
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:109
+msgid "No order has been made yet."
+msgstr ""
+
+#: woocommerce/myaccount/orders.php:109
+msgid "Browse products"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:35
+#: woocommerce/order/order-details-customer.php:66
+msgid "N/A"
+msgstr ""
+
+#: woocommerce/order/order-details.php:32
+msgid "Order details"
+msgstr ""
+
+#: woocommerce/order/order-details.php:83
+msgid "Note:"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:64
+msgid "There are no reviews yet."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:75
+msgid "Add a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:75
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:77
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:81
+msgid "Submit"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:89
+msgid "Name"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:95
+msgid "Email"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:120
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:124
+msgid "Your rating"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:125
+msgid "Rate&hellip;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:126
+msgid "Perfect"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:127
+msgid "Good"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:128
+msgid "Average"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:129
+msgid "Not that bad"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:130
+msgid "Very poor"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:134
+msgid "Your review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:144
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/grouped.php:67
+msgid "Buy one of this item"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variable.php:32
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variable.php:48
+msgid "Clear"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variation.php:22
+msgid ""
+"Sorry, this product is unavailable. Please choose a different combination."
+msgstr ""
+
+#: woocommerce/single-product/tabs/description.php:25
+msgid "Опис"
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:26
+msgid "You may also like&hellip;"
+msgstr ""
