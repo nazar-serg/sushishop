@@ -203,7 +203,7 @@ function custom_display_product_description_and_reviews() {
 	global $product;
 	if(!empty(get_the_content())) {
 		echo '<div class="custom-product-description">';
-		echo '<h2 class="section-title"><span>' . __('Description', 'sushishop') . ' ' . __($product->name) . '</span></h2>';
+		echo '<h2 class="section-title"><span>' . __('Опис', 'sushishop') . ' ' . __($product->name) . '</span></h2>';
 		the_content();
 		echo '</div>';
 	}

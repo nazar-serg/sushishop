@@ -18,7 +18,7 @@
 			<div class="header-top py-1">
 				<div class="container">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-sm-6 col-12">
 							<div class="header-top-info">
 								<?php
 								if (have_rows('link_info_top_bar', 'option')): ?>
@@ -39,40 +39,19 @@
 
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-sm-6 col-12">
 							<div class="header-top-account d-flex justify-content-end">
 								<div class="btn-group me-2">
-									<div class="dropdown">
-										<button class="btn btn-sm dropdown-toggle" type="button"
-											data-bs-toggle="dropdown" aria-expanded="false">
-											Account
-										</button>
-										<ul class="dropdown-menu">
-											<li>
-												<a class="dropdown-item" href="#">Sign In</a>
-											</li>
-											<li>
-												<a class="dropdown-item" href="#">Sign Up</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="btn-group">
-									<div class="dropdown">
-										<button class="btn btn-sm dropdown-toggle" type="button"
-											data-bs-toggle="dropdown" aria-expanded="false">
-											EN
-										</button>
-										<ul class="dropdown-menu">
-											<li>
-												<a class="dropdown-item" href="#">RU</a>
-											</li>
-											<li>
-												<a class="dropdown-item" href="#">DE</a>
-											</li>
-										</ul>
-									</div>
+									<?php 
+									$link_account = get_field('account_link', 'option');
+									if( $link_account ): 
+										$link_url = $link_account['url'];
+										$link_title = $link_account['title'];
+										$link_target = $link_account['target'] ? $link['target'] : '_self';
+										?>
+									<a href="<?php echo esc_url( $link_url ); ?>"
+										target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<?php endif; ?>
 								</div>
 							</div>
 							<!-- ./header-top-account -->
@@ -86,7 +65,7 @@
 				<div class="container">
 					<div class="row align-items-center">
 
-						<div class="col-sm-2">
+						<div class="col-md-2 col-sm-4">
 							<div class="header-logo">
 								<?php
 								if ( function_exists( 'the_custom_logo' ) ) {
@@ -95,35 +74,33 @@
 							?>
 							</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="header-center-contact">
-								<div class="header-time">
-									<?php
+						<div class="col-md-4 col-sm-8 header-center-contact">
+							<div class="header-time">
+								<?php
 									$header_phone = get_field('center_header_time', 'option');
 									if ($header_phone): ?>
-									<div>
-										<i class="<?php echo $header_phone['icon']; ?>"></i>
-										<span><?php echo $header_phone['text']; ?></span>
-									</div>
-									<?php endif; ?>
+								<div>
+									<i class="<?php echo $header_phone['icon']; ?>"></i>
+									<span><?php echo $header_phone['text']; ?></span>
 								</div>
+								<?php endif; ?>
+							</div>
 
-								<div class="header-phone">
-									<?php
+							<div class="header-phone">
+								<?php
 									$header_phone = get_field('center_header_phone', 'option');
 									if ($header_phone): ?>
-									<div>
-										<a href="<?php echo $header_phone['text']; ?>">
-											<i class="<?php echo $header_phone['icon']; ?>"></i>
-											<span><?php echo $header_phone['text']; ?></span>
-										</a>
-									</div>
-									<?php endif; ?>
+								<div>
+									<a href="<?php echo $header_phone['text']; ?>">
+										<i class="<?php echo $header_phone['icon']; ?>"></i>
+										<span><?php echo $header_phone['text']; ?></span>
+									</a>
 								</div>
+								<?php endif; ?>
 							</div>
 						</div>
 
-						<div class="col-sm-6 mt-2 mt-md-0">
+						<div class="col-md-6 col-12 mt-2 mt-md-0">
 							<?php aws_get_search_form( true ); ?>
 						</div>
 
