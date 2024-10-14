@@ -285,6 +285,15 @@ label.required::before {
 
 .header-bottom {
     box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+    
+    .dropdown-menu {
+        display: none;
+        transition: all 0.3s ease; 
+    }
 }
 
 .header-bottom .navbar,
@@ -320,9 +329,7 @@ label.required::before {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
 }
-// .navbar-toggler-icon {
-//     content: url(../../assets/images/icon/burger-menu.svg);
-// }
+
 /* ============================= Header ============================ */
 
 /* ============================= Home ============================ */
@@ -436,6 +443,25 @@ label.required::before {
         font-size: 18px;
         line-height: 22px;
     }
+}
+.advantages__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 580px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.advantages__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.advantages__item-text p {
+    margin-bottom: 0;
 }
 
 
@@ -1070,6 +1096,7 @@ footer a:hover {
 
 .products .product .star-rating {
     font-size: .857em;
+    margin-bottom: 0;
 }
 .woocommerce .star-rating {
     float: right;

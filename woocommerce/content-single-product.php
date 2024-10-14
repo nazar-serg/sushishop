@@ -9,6 +9,11 @@ global $product;
 </div>
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'col-12 product-content-wrapper', $product ); ?>>
+	<div class="row">
+		<div class="col-12">
+			<?php woocommerce_template_single_title(); ?>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-5 col-lg-6 mb-3">
@@ -23,7 +28,7 @@ global $product;
 
 		<div class="col-md-7 col-lg-6 mb-3">
 			<?php
-        woocommerce_template_single_title();
+        
 		woocommerce_template_single_rating();
 		global $product;
 

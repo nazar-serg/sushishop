@@ -76,24 +76,22 @@
 			</div>
 			<?php
 			if (have_rows('our_advantages_list')): ?>
-			<div class="row advantages__list">
+			<div class="advantages__list">
 				<?php while(have_rows('our_advantages_list')): the_row();
 				$icon = get_sub_field('icon');
 				$text = get_sub_field('text');
 				$title = get_sub_field('title');
 				?>
-				<div class="col-lg-3 col-sm-6">
-					<div class=" advantages__item d-flex align-items-center gap-3 h-100">
-						<div class="advantages__icon">
-							<i class="<?php echo $icon; ?>"></i>
+				<div class="advantages__item">
+					<div class="advantages__icon">
+						<i class="<?php echo $icon; ?>"></i>
+					</div>
+					<div class="advantages__content">
+						<div class="advantages__item-title">
+							<h3><?php echo $title; ?></h3>
 						</div>
-						<div class="advantages__content">
-							<div class="advantages__item-title">
-								<h3><?php echo $title; ?></h3>
-							</div>
-							<div class="advantages__item-text">
-								<p><?php echo $text; ?></p>
-							</div>
+						<div class="advantages__item-text">
+							<p><?php echo $text; ?></p>
 						</div>
 					</div>
 				</div>
