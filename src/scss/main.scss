@@ -1761,17 +1761,23 @@ a.added_to_cart {
 .woocommerce-customer-details {
     padding: 20px 0;
 }
-
-.delivery_time {
+#custom_delivery_options {
     margin-bottom: 20px;
 }
-
-.delivery_time h3 {
+#custom_delivery_options .woocommerce-input-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+#custom_delivery_options label {
+    font-weight: bold;
+}
+#custom_delivery_options h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
 }
 
-.delivery_time input[type="radio"] {
+#custom_delivery_options input[type="radio"] {
     display: none;
 }
 
@@ -1797,9 +1803,74 @@ a.added_to_cart {
     border-color: var(--accent-color);
 }
 
-.woocommerce-input-wrapper label span {
-    margin-left: 10px;
+#custom_no_call .form-row-wide {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
+
+#custom_no_call label {
+    margin-left: 10px;
+    font-weight: bold;
+}
+#no_call_confirmation_field label {
+    border: none;
+    display: flex;
+    gap: 5px;
+}
+#no_call_confirmation_field label:hover {
+    background: none;
+}
+#no_call_confirmation_field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#no_call_confirmation_field input[type="checkbox"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var( --accent-color);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#no_call_confirmation_field input[type="checkbox"]:checked {
+    background-color: var( --accent-color);
+    border-color: var( --accent-color);
+}
+
+#no_call_confirmation_field input[type="checkbox"]:checked::before {
+    content: '\2714'; /* Символ галочки */
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#no_call_confirmation_field label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+#no_call_confirmation_field input[type="checkbox"]:hover {
+    border-color: var( --accent-color);
+}
+
+#no_call_confirmation_field input[type="checkbox"]:checked:hover {
+    background-color: var( --accent-color);
+    border-color: var( --accent-color);
+}
+
 
 /* Checkout */
 

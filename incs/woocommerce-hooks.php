@@ -284,3 +284,86 @@ function custom_breadcrumbs() {
     
     echo '</ul>';
 }
+
+
+// Добавляем радиокнопки на страницу checkout(Дополнительные параметры: Время доставки, Не звонить по телефону для подтверждения заказа)
+add_action( 'woocommerce_after_order_notes', 'custom_delivery_options' );
+
+function custom_delivery_options( $checkout ) {
+    echo '<div id="custom_delivery_options"><h3>' . __('Додаткові параметри замовлення') . '</h3>';
+    
+    woocommerce_form_field( 'delivery_option', array(
+        'type'    => 'radio',
+        'class'   => array('form-row-wide'),
+        'label'   => __('Виберіть час доставки'),
+        'options' => array(
+            'soon'     => 'Найближчим часом (до 90 хв.)',
+            'preorder' => 'Замовлення (більше 90 хв.)',
+        ),
+    ), $checkout->get_value( 'delivery_option' ) );
+
+	  // Добавляем чекбокс
+	  woocommerce_form_field( 'no_call_confirmation', array(
+        'type'    => 'checkbox',
+        'class'   => array('form-row-wide'),
+        'label'   => __('Не телефонувати для підтвердження замовлення'),
+        'required' => false,
+    ), $checkout->get_value( 'no_call_confirmation' ));
+    
+    echo '</div>';
+}
+
+// Сохраняем выбранную опцию в заказе
+add_action( 'woocommerce_checkout_create_order', 'save_delivery_option_in_order_meta', 20, 2 );
+function save_delivery_option_in_order_meta( $order, $data ) {
+    if ( isset( $_POST['delivery_option'] ) ) {
+        $order->update_meta_data( 'delivery_option', sanitize_text_field( $_POST['delivery_option'] ) );
+    }
+}
+
+// Отображение в админке
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'display_delivery_option_in_admin_order', 10, 1 );
+function display_delivery_option_in_admin_order( $order ){
+    $delivery_option = $order->get_meta( 'delivery_option' );
+    if( $delivery_option ) {
+        echo '<p><strong>Варіант доставки:</strong> ' . ($delivery_option == 'soon' ? 'Найближчим часом (до 90 хв.)' : 'Найближчим часом (до 90 хв.)') . '</p>';
+    }
+}
+
+// Добавляем информацию в письмо
+add_filter( 'woocommerce_email_order_meta_fields', 'add_delivery_option_to_order_email', 10, 3 );
+function add_delivery_option_to_order_email( $fields, $sent_to_admin, $order ) {
+    $delivery_option = $order->get_meta( 'delivery_option' );
+    if( $delivery_option ) {
+        $fields['delivery_option'] = array(
+            'label' => 'Варіант доставки',
+            'value' => $delivery_option == 'soon' ? 'Найближчим часом (до 90 хв.)' : 'Замовлення (більше 90 хв.)'
+        );
+    }
+    return $fields;
+}
+
+add_action( 'woocommerce_checkout_update_order_meta', 'save_no_call_checkbox_value' );
+
+function save_no_call_checkbox_value( $order_id ) {
+    if ( isset( $_POST['no_call_confirmation'] ) )
+        update_post_meta( $order_id, 'no_call_confirmation', esc_attr( $_POST['no_call_confirmation'] ) );
+}
+
+// Добавляем в админку
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'display_no_call_order_meta', 10, 1 );
+function display_no_call_order_meta($order){
+    $no_call = get_post_meta( $order->get_id(), 'no_call_confirmation', true );
+    if ( $no_call ) {
+        echo '<p><strong>' . __('Не телефонувати для підтвердження замовлення:') . '</strong> ' . __('Да') . '</p>';
+    }
+}
+
+// Добавляем в email
+add_action( 'woocommerce_email_after_order_table', 'email_no_call_order_meta', 10, 4 );
+function email_no_call_order_meta( $order, $sent_to_admin, $plain_text, $email ) {
+    $no_call = get_post_meta( $order->get_id(), 'no_call_confirmation', true );
+    if ( $no_call ) {
+        echo '<p><strong>' . __('Не телефонувати для підтвердження замовлення:') . '</strong> ' . __('Да') . '</p>';
+    }
+}

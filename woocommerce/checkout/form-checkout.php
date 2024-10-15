@@ -30,7 +30,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<!--./col-lg-8 mb-3-->
 			<?php endif; ?>
 			<div class="col-lg-4 mb-3">
-				<div class="cart-summary p-3 sidebar h-100">
+				<div class="cart-summary p-3 sidebar">
 					<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
 					<h3 id="order_review_heading h4 section-title">
 						<span><?php esc_html_e( 'Your order', 'woocommerce' ); ?></span>
